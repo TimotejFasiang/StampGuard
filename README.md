@@ -1,6 +1,6 @@
-# StampVerifier
+# StampGuard
 
-StampVerifier is a desktop application designed to detect fraud and fake stamps from Czechoslovakia. It utilizes algorithms to analyze and verify the authenticity of stamps based on various criteria.
+StampGuard is a desktop application designed to detect fraud and fake stamps from Czechoslovakia. It utilizes algorithms to analyze and verify the authenticity of stamps based on various criteria.
 
 ## Features
 
@@ -24,7 +24,8 @@ StampVerifier is a desktop application designed to detect fraud and fake stamps 
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/your_username/StampVerifier.git
-   cd StampVerifier
+   git clone https://github.com/TimotejFasiang/StampGuard.git
+   cd StampGuard
 2. Step 2:
-   ```etc.
+   ```bash
+   etc.
