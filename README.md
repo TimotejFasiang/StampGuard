@@ -10,7 +10,7 @@ StampGuard is a desktop application designed to detect fraud and fake stamps fro
 - **Offline Mode:** Works entirely offline, no need for internet connectivity for stamp verification.
 - **Detailed Findings:** Provides detailed findings on the analysis and authenticity of each stamp.
 - **Customizable Settings:** Adjustable settings for different stamp types and verification thresholds.
-- - **More cool things:** Program has alot of other cool things.
+- **Else:** Other features.
 
 ## Getting Started
 
