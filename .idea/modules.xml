@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/StampVerifier.iml" filepath="$PROJECT_DIR$/.idea/StampVerifier.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/StampGuard.iml" filepath="$PROJECT_DIR$/.idea/StampGuard.iml" />
     </modules>
   </component>
 </project>

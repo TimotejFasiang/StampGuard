@@ -169,7 +169,7 @@ accepting any such warranty or additional liability.
 
 _END OF TERMS AND CONDITIONS_
 
-# StampVerifier
+# StampGuard
 
 Copyright 2024-2025 Timotej Fašiang
 

@@ -8,7 +8,7 @@
     "withGlobalTauri": true
   },
   "package": {
-    "productName": "StampVerifier",
+    "productName": "StampGuard",
     "version": "0.1.0"
   },
   "tauri": {
@@ -59,7 +59,7 @@
         "fullscreen": false,
         "height": 600,
         "resizable": true,
-        "title": "StampVerifier",
+        "title": "StampGuard",
         "width": 800
       }
     ]
