@@ -13,39 +13,103 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            /*background-color: #000; !* Black background *!*/
-            background-color: #f0f0f0; /* Almost White background */
+            background-color: #fff;
+            overflow: hidden; /* Prevents any scrolling */
+        }
+
+        #container {
+            position: relative;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            width: 100%;
         }
 
         #image-container {
+            opacity: 0;
+            animation: fadeIn 2s forwards;
+        }
+
+        #buttons-container {
+            position: absolute;
+            bottom: 15%; /* Adjust height */
+            width: 100%;
             text-align: center;
             opacity: 0;
-            animation: fadeInOut 4s forwards;
         }
 
-        img {
-            max-width: 100%;
-            max-height: 100%;
+        button {
+            padding: 12px 24px;
+            font-size: 18px;
+            background-color: #000;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.25s ease, opacity 0.25s ease;
+            margin: 0 10px; /* Adds some space between buttons */
+            border: 2px solid #000;
+            border-radius: 4px;
         }
 
-        @keyframes fadeInOut {
+        button:hover {
+            background-color: #fff;
+            color: #000;
+        }
+
+        @keyframes fadeIn {
             0% { opacity: 0; }
-            25% { opacity: 1; }
-            75% { opacity: 1; }
+            100% { opacity: 1; }
+        }
+
+        @keyframes fadeOut {
+            0% { opacity: 1; }
             100% { opacity: 0; }
+        }
+
+        @keyframes fadeInQuick {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
         }
     </style>
     <script>
         document.addEventListener("DOMContentLoaded", function() {
+            const imageContainer = document.getElementById("image-container");
+            const buttonsContainer = document.getElementById("buttons-container");
+
             setTimeout(function() {
-                window.location.href = "mainpage.html";
-            }, 4000); // 4 seconds for the fade-in and fade-out effect
+                buttonsContainer.style.animation = "fadeInQuick 0.5s forwards"; // Quicker fade-in animation for buttons
+            }, 2000); // Start fade-in animation for buttons after 2 seconds
+
+            const buttons = document.querySelectorAll("button");
+            buttons.forEach(button => {
+                button.addEventListener("click", function() {
+                    imageContainer.style.animation = "fadeOut 0.5s forwards";
+                    buttonsContainer.style.animation = "fadeOut 0.5s forwards";
+                    setTimeout(function() {
+                        const language = button.getAttribute("data-language");
+                        if (language === "english") {
+                            window.location.href = "mainpage-en.html";
+                        } else if (language === "czech") {
+                            window.location.href = "mainpage-cz.html";
+                        }
+                    }, 2000); // Redirect after the fade-out effect
+                });
+            });
         });
     </script>
 </head>
-    <div id="image-container">
-        <img src='./png/logo-light.png' alt="Image to display">
-<!--        <img src='./png/logo-dark.png' alt="Image to display">-->
+<body>
+    <div id="container">
+        <div id="image-container">
+            <img src='./png/logo-light.png' alt="Image to display">
+        </div>
+        <div id="buttons-container">
+            <button data-language="english">Continue (English)</button>
+            <button data-language="czech">Pokračovat (Čeština)</button>
+        </div>
     </div>
 </body>
 </html>

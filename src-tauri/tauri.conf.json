@@ -60,10 +60,12 @@
     "windows": [
       {
         "fullscreen": false,
+        "maximized": true,
         "height": 600,
+        "width": 800,
         "resizable": true,
-        "title": "StampGuard",
-        "width": 800
+        "title": "StampGuard"
+
       }
     ]
   }
