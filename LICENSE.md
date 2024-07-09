@@ -1,6 +1,6 @@
 # StampGuard
 
-Copyright 2024-2025 Timotej Fašiang
+Copyright 2024 Timotej Fašiang
 
 This product includes software developed as part of a bachelor thesis at the Technical University of Liberec ([Technical University of Liberec](https://www.tul.cz/en)).
 
