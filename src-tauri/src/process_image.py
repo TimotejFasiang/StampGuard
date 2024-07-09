@@ -1,6 +1,5 @@
 import sys
 import cv2
-import time
 
 if __name__ == "__main__":
     image_path = sys.argv[1]
