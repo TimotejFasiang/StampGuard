@@ -14,6 +14,8 @@ document.getElementById('sendFilePathButton').addEventListener('click', async ()
             // Log the selected file path
             console.log('Selected file path:', selectedFilePath);
 
+            await invoke('print_message', { message: selectedFilePath });
+
             const displayImage = document.getElementById('displayImage');
             displayImage.src = './processed_image.jpg';
             displayImage.style.display = 'block';
