@@ -33,7 +33,7 @@
         "icons/icon.icns",
         "icons/icon.ico"
       ],
-      "identifier": "com.timptejfasiang.stampguard",
+      "identifier": "com.timotejfasiang.stampguard",
       "longDescription": "",
       "macOS": {
         "entitlements": null,
