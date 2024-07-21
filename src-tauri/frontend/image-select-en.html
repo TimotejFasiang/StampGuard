@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Upload</title>
+    <link rel="stylesheet" href="image-select-en.css">
+</head>
+<body>
+    <div class="container">
+        <button id="uploadButton">Select Image</button>
+        <input type="file" id="fileInput" accept="image/*" style="display: none;">
+        <div class="image-container">
+            <img id="selectedImage" style="display: none;">
+            <div class="button-row" id="buttonRow" style="display: none;">
+                <button id="confirmButton">Confirm</button>
+                <button id="chooseAnotherButton">Re-select</button>
+            </div>
+        </div>
+    </div>
+    <script src="image-select-en.js"></script>
+</body>
+</html>

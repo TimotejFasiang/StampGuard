@@ -1,0 +1,36 @@
+/* Reset margins and padding for the entire document */
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    overflow: hidden; /* Prevents any scrolling */
+}
+
+/* Style for the image container */
+#image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    opacity: 0; /* Initially hidden */
+    animation: fadeIn 2s forwards; /* Fade in animation */
+}
+
+/* Style for the image */
+#image-container img {
+    max-width: 90%; /* Scale image to fit the width of the container */
+    max-height: 90%; /* Scale image to fit the height of the container */
+    object-fit: contain; /* Maintain aspect ratio */
+}
+
+/* Fade in animation */
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
