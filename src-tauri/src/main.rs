@@ -2,7 +2,7 @@ use std::process::Command;
 use tauri::command;
 
 #[command]
-fn print_message(message: String) {
+fn process_image(message: String) {
     let python_script_path = "./src/process_image.py";
 
     let output = Command::new("python3")
@@ -17,7 +17,7 @@ fn print_message(message: String) {
 
 fn main() {
     tauri::Builder::default()
-        .invoke_handler(tauri::generate_handler![print_message])
+        .invoke_handler(tauri::generate_handler![process_image])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
 }
