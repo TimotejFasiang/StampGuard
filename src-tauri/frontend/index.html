@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Image Display</title>
     <style>
+        /* Reset margins and padding for the entire document */
         body, html {
             margin: 0;
             padding: 0;
@@ -17,29 +18,38 @@
             overflow: hidden; /* Prevents any scrolling */
         }
 
+        /* Container for centering the logo and buttons */
         #container {
-            position: relative;
             text-align: center;
+            width: 100%;
+            height: 100%;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
-            height: 100%;
-            width: 100%;
         }
 
-        #image-container {
-            opacity: 0;
-            animation: fadeIn 2s forwards;
+        /* Style for the logo container */
+        #logo-container {
+            animation: fadeIn 2s forwards, resizeAndMove 1s 1s forwards; /* Combined animations */
+            margin-bottom: 20px; /* Space between logo and buttons */
         }
 
+        /* Ensure the logo fits within the viewport initially */
+        #logo-container img {
+            width: 100%; /* Full width initially */
+            height: auto;
+        }
+
+        /* Style for buttons container */
         #buttons-container {
-            position: absolute;
-            bottom: 10%; /* Adjust height */
-            width: 100%;
-            text-align: center;
             opacity: 0;
+            animation: fadeInButtons 1s 2s forwards; /* Fade in animation delayed by 4 seconds */
+            display: flex;
+            gap: 20px; /* Space between buttons */
         }
 
+        /* Style for individual buttons */
         button {
             padding: 12px 24px;
             font-size: 18px;
@@ -49,9 +59,7 @@
             border-radius: 4px;
             cursor: pointer;
             transition: background-color 0.25s ease, opacity 0.25s ease;
-            margin: 0 10px; /* Adds some space between buttons */
             border: 2px solid #000;
-            border-radius: 4px;
         }
 
         button:hover {
@@ -59,57 +67,66 @@
             color: #000;
         }
 
+        /* Fade in animation for the logo */
         @keyframes fadeIn {
             0% { opacity: 0; }
             100% { opacity: 1; }
         }
 
+        /* Resize and move the logo up */
+        @keyframes resizeAndMove {
+            0% {
+                transform: scale(1) translateY(0);
+            }
+            100% {
+                transform: scale(0.75) translateY(-30%); /* Move logo up by 30% */
+            }
+        }
+
+        /* Fade in animation for the buttons */
+        @keyframes fadeInButtons {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        /* Fade out animation for the whole page */
         @keyframes fadeOut {
             0% { opacity: 1; }
             100% { opacity: 0; }
         }
-
-        @keyframes fadeInQuick {
-            0% { opacity: 0; }
-            100% { opacity: 1; }
-        }
     </style>
+</head>
+<body>
+    <div id="container">
+        <div id="logo-container">
+            <img src="./png/logo-light.png" alt="Logo">
+        </div>
+        <div id="buttons-container">
+            <button id="englishButton" data-language="english">Continue (English)</button>
+            <button id="czechButton" data-language="czech">Pokračovat (Čeština)</button>
+        </div>
+    </div>
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-            const imageContainer = document.getElementById("image-container");
-            const buttonsContainer = document.getElementById("buttons-container");
-
-            setTimeout(function() {
-                buttonsContainer.style.animation = "fadeInQuick 0.5s forwards"; // Quicker fade-in animation for buttons
-            }, 2000); // Start fade-in animation for buttons after 2 seconds
-
             const buttons = document.querySelectorAll("button");
+
             buttons.forEach(button => {
                 button.addEventListener("click", function() {
-                    imageContainer.style.animation = "fadeOut 0.5s forwards";
-                    buttonsContainer.style.animation = "fadeOut 0.5s forwards";
-                    setTimeout(function() {
+                    // Start fade-out animation for the whole page
+                    document.body.style.animation = "fadeOut 0.5s forwards";
+
+                    // Redirect after the fade-out animation completes
+                    setTimeout(() => {
                         const language = button.getAttribute("data-language");
                         if (language === "english") {
-                            window.location.href = "mainpage-en.html";
+                            window.location.href = "image-select-en.html";
                         } else if (language === "czech") {
-                            window.location.href = "mainpage-cz.html";
+                            window.location.href = "image-select-cz.html";
                         }
-                    }, 2000); // Redirect after the fade-out effect
+                    }, 500); // Matches the duration of the fade-out animation
                 });
             });
         });
     </script>
-</head>
-<body>
-    <div id="container">
-        <div id="image-container">
-            <img src='./png/logo-light.png' alt="Image to display">
-        </div>
-        <div id="buttons-container">
-            <button data-language="english">Continue (English)</button>
-            <button data-language="czech">Pokračovat (Čeština)</button>
-        </div>
-    </div>
 </body>
 </html>
