@@ -1,44 +1,29 @@
-const { invoke } = window.__TAURI__.tauri
+const { invoke } = window.__TAURI__.tauri;
+const { open } = window.__TAURI__.dialog;
 
-document.getElementById('uploadButton').addEventListener('click', function() {
-    document.getElementById('fileInput').click();
-});
+async function handleFileSelection() {
+  const selectedFilePath = await open({multiple: false, directory: false});
 
-document.getElementById('fileInput').addEventListener('change', function(event) {
-    const file = event.target.files[0];
-    if (file) {
-        const reader = new FileReader();
-        reader.onload = function(e) {
-            const img = document.getElementById('selectedImage');
-            img.src = e.target.result;
-            img.style.display = 'block';
-            document.getElementById('uploadButton').style.display = 'none';
-            document.getElementById('buttonRow').style.display = 'flex';
-        }
-        reader.readAsDataURL(file);
-    }
-});
+  if (selectedFilePath) {
+      console.log("Selected file URL:", selectedFilePath);
+
+      await invoke('save_image', { message: selectedFilePath });
+
+      // TODO: Call ↓↓↓ when confirmButton clicked, will increase performance.(code currently in save_image.py)
+      // await invoke('process_image', { message: selectedFilePath });
+
+      const displayImage = document.getElementById('selectedImage');
+      displayImage.src = './orig_image.jpg';
+      displayImage.style.display = 'block';
+
+      document.getElementById('uploadButton').style.display = 'none';
+      document.getElementById('buttonRow').style.display = 'flex';
+  }
+}
 
 document.getElementById('confirmButton').addEventListener('click', async function() {
-    const fileInput = document.getElementById('fileInput');
-    if (fileInput.files.length > 0) {
-        const file = fileInput.files[0];
-        const filePath = URL.createObjectURL(file); // Create a URL for the file
-
-        try {
-            // Call the Tauri command with the file path
-            await invoke('process_image', { message: filePath });
-
-            // Redirect after the command completes
-            window.location.href = 'display-image-en.html';
-        } catch (error) {
-            console.error('Error invoking Tauri command:', error);
-        }
-    } else {
-        console.warn('No file selected.');
-    }
+    window.location.href = 'display-image-en.html';
 });
 
-document.getElementById('chooseAnotherButton').addEventListener('click', function() {
-    document.getElementById('fileInput').click();
-});
+document.getElementById('uploadButton').addEventListener('click', handleFileSelection);
+document.getElementById('chooseAnotherButton').addEventListener('click', handleFileSelection);
