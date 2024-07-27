@@ -42,7 +42,12 @@
         "providerShortName": null,
         "signingIdentity": null
       },
-      "resources": [],
+      "resources": [
+      "./src/save_image",
+      "./frontend/processed_image.jpg",
+      "./frontend/orig_image.jpg",
+      "app_log.txt"
+      ],
       "shortDescription": "",
       "targets": "all",
       "windows": {
