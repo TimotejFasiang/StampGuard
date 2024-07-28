@@ -6,7 +6,7 @@ use tauri::command;
 // Function to log messages to a file
 fn log_to_file(message: &str) {
     // Define the log file path
-    let log_file_path = "./app_log.txt"; // Change this path if needed
+    let log_file_path = "/home/timotej/Desktop/app_log.txt";
 
     // Open the file in append mode
     let mut file = OpenOptions::new()
@@ -19,28 +19,10 @@ fn log_to_file(message: &str) {
     writeln!(file, "{}", message).expect("Failed to write to log file");
 }
 
-// //PY file
-// #[command]
-// fn save_image(message: String) {
-//     let python_script_path = "./src/save_image.py";
-//     let current_dir = std::env::current_dir().unwrap();
-//     println!("Current directory: {:?}", current_dir);
-//     println!("Executable path: {}", python_script_path);
-//
-//     let output = Command::new("python3")
-//         .arg(python_script_path)
-//         .arg(&message)  // Pass the selected file path as an argument to Python script
-//         .output()
-//         .expect("Failed to execute Python script");
-//
-//     let output_str = String::from_utf8_lossy(&output.stdout);
-//     println!("{}", output_str); // Print any python output
-// }
-
 //PY executable
 #[command]
 fn save_image(message: String) {
-    let python_script_path = "./src/save_image"; // Path to the executable
+    let python_script_path = "/usr/lib/stamp-guard/src/save_image"; // Path to the executable
     let current_dir = std::env::current_dir().unwrap();
     let log_message = format!("Current directory: {:?}", current_dir);
     log_to_file(&log_message);
@@ -69,6 +51,7 @@ fn save_image(message: String) {
         }
     }
 }
+
 
 fn main() {
     tauri::Builder::default()

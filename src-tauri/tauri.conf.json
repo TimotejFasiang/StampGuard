@@ -16,11 +16,33 @@
       "all": false,
       "dialog": {
         "open": true
+      },
+      "protocol": {
+        "asset": true,
+        "assetScope": {
+          "allow": ["$HOME/.local/share/stamp-guard/frontend/**"]
+        }
+      },
+      "path": {
+        "all": true
+      },
+      "fs": {
+        "all": true,
+        "readFile": true,
+        "writeFile": true,
+        "readDir": true,
+        "copyFile": true,
+        "createDir": true,
+        "removeDir": false,
+        "removeFile": false,
+        "renameFile": false,
+        "exists": true
       }
     },
     "bundle": {
       "active": true,
-      "category": "DeveloperTool",
+      "targets": ["deb"],
+      "category": "Utility",
       "copyright": "",
       "deb": {
         "depends": []
@@ -44,12 +66,12 @@
       },
       "resources": [
       "./src/save_image",
+      "/home/timotej/PycharmProjects/StampGuard/src-tauri/src/save_image",
       "./frontend/processed_image.jpg",
       "./frontend/orig_image.jpg",
       "app_log.txt"
       ],
       "shortDescription": "",
-      "targets": "all",
       "windows": {
         "certificateThumbprint": null,
         "digestAlgorithm": "sha256",

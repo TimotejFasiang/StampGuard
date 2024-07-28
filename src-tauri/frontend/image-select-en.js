@@ -1,24 +1,30 @@
 const { invoke } = window.__TAURI__.tauri;
 const { open } = window.__TAURI__.dialog;
+const { homeDir } = window.__TAURI__.path;
+const { convertFileSrc } = window.__TAURI__.tauri;
 
 async function handleFileSelection() {
-  const selectedFilePath = await open({multiple: false, directory: false});
+    let selectedFilePath = await open({ multiple: false, directory: false, title: "Select an image" });
+    if (selectedFilePath) {
+        let homeDirPath = await homeDir();
+        let basePath = `${homeDirPath}.local/share/stamp-guard/frontend`;
+        let origImagePath = `${basePath}/orig_image.jpg`;
 
-  if (selectedFilePath) {
-      console.log("Selected file URL:", selectedFilePath);
+        // Invoke the save_image command
+        await invoke('save_image', { message: selectedFilePath });
 
-      await invoke('save_image', { message: selectedFilePath });
+        // Cache busting: Add a unique query parameter to the image URL
+        let origImagePathURL = `${convertFileSrc(origImagePath)}?t=${new Date().getTime()}`;
 
-      // TODO: Call ↓↓↓ when confirmButton clicked, will increase performance.(code currently in save_image.py)
-      // await invoke('process_image', { message: selectedFilePath });
+        // Update the image element
+        let displayImage = document.getElementById('selectedImage');
 
-      const displayImage = document.getElementById('selectedImage');
-      displayImage.src = './orig_image.jpg';
-      displayImage.style.display = 'block';
+        displayImage.src = origImagePathURL; // Set the new src with cache busting
+        displayImage.style.display = 'block'; // Show the image
 
-      document.getElementById('uploadButton').style.display = 'none';
-      document.getElementById('buttonRow').style.display = 'flex';
-  }
+        document.getElementById('uploadButton').style.display = 'none';
+        document.getElementById('buttonRow').style.display = 'flex';
+    }
 }
 
 document.getElementById('confirmButton').addEventListener('click', async function() {

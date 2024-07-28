@@ -88,12 +88,6 @@
             0% { opacity: 0; }
             100% { opacity: 1; }
         }
-
-        /* Fade out animation for the whole page */
-        @keyframes fadeOut {
-            0% { opacity: 1; }
-            100% { opacity: 0; }
-        }
     </style>
 </head>
 <body>
@@ -112,18 +106,12 @@
 
             buttons.forEach(button => {
                 button.addEventListener("click", function() {
-                    // Start fade-out animation for the whole page
-                    document.body.style.animation = "fadeOut 0.5s forwards";
-
-                    // Redirect after the fade-out animation completes
-                    setTimeout(() => {
-                        const language = button.getAttribute("data-language");
-                        if (language === "english") {
-                            window.location.href = "image-select-en.html";
-                        } else if (language === "czech") {
-                            window.location.href = "image-select-cz.html";
-                        }
-                    }, 500); // Matches the duration of the fade-out animation
+                    const language = button.getAttribute("data-language");
+                    if (language === "english") {
+                        window.location.href = "image-select-en.html";
+                    } else if (language === "czech") {
+                        window.location.href = "image-select-cz.html";
+                    }
                 });
             });
         });
