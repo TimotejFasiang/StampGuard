@@ -1,8 +1,7 @@
 # Updates for doc. Chaloupka:
 
 ### 3:
-Brzy budu přidávat "releases" na svou stránku na githubu, ale zatím, pokud se chcete podívat, můžete si naklonovat můj repozitář a pak z hlavního adresáře (v Linuxu) otevřít terminál a spustit "npm run tauri dev".
-Potrebujete jenom [rust](https://www.rust-lang.org/tools/install) a [Node.js](https://nodejs.org/en)
+Jakmile dokončím změnu na svelte, dám první „release“ na github.
 
 ### 2:
 Pro aplikaci jsem se rozhodl použít Tauri. Je to moderní framework pro vytváření multiplatformních desktopových aplikací využívajících webové technologie (v mém případě HTML, CSS a JavaScript) v kombinaci s Rustem pro backendové funkce. I když jako backend používá rust, budu ho používat pouze k volání svých python souborů, takže teoreticky by se dalo říct, že má pythonovský backend, jak jste požadoval.
