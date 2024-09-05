@@ -11,7 +11,8 @@
 		const homeDirPath = await homeDir();
 		const basePath = `${homeDirPath}.local/share/stamp-guard/frontend`;
 		const processedImagePath = `${basePath}/processed_image.jpg`;
-		imageUrl = convertFileSrc(processedImagePath);
+
+		imageUrl = `${convertFileSrc(processedImagePath)}?t=${new Date().getTime()}`;
 		showButtonRow = true; // Show the button row once the image is loaded
 	}
 
