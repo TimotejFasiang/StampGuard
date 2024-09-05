@@ -30,7 +30,7 @@
 
         if (selectedFilePath) {
 			await invoke('save_image', { message: selectedFilePath });
-			await new Promise(resolve => setTimeout(resolve, 1500));
+			await new Promise(resolve => setTimeout(resolve, 2000));
 			console.log("Done invoking save_image")
 
             // Cache busting: Add a unique query parameter to the image URL
