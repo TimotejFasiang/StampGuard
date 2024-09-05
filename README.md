@@ -1,5 +1,10 @@
 # Updates for doc. Chaloupka:
 
+### 4:
+Dokončil jsem přechod na Svelte, veškeré budoucí změny uživatelského rozhraní programu budou teď rychlejší a jednodušší. Testuji svou první verzi a mám problémy s architekturou procesoru.
+Zatím to vypadá, že budu muset mít oddělené verze pro systémy amd a intel, dokud nepřijdu na lepší řešení.
+Jinak jsem se základní funkčností programu spokojen. Jediné, co potřebuji opravit, je 1,5 sekundová pauza mezi výběrem a zobrazením obrázku známky. Pauzu jsem musel přidat do kódu, protože bez ní se obrázek vůbec nezobrazuje.
+
 ### 3:
 Jakmile dokončím změnu na svelte, dám první „release“ na github.
 
