@@ -57,7 +57,6 @@
 </style>
 
 <main>
-	introduction
 	<div class="buttonContainer">
         <button id="uploadButton" on:click={handleFileSelection}>Select Image</button>
 	</div>
