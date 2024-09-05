@@ -115,7 +115,6 @@
 </style>
 
 <main>
-	select_image
 	<div class="container">
         <div class="image-button-wrapper">
             <img id="selectedImage" src={imageUrl} alt="User Selected"/>

@@ -95,7 +95,6 @@
 </style>
 
 <main>
-	display_image
 	<div class="container">
 		<div class="image-button-wrapper">
 			{#if imageUrl}
