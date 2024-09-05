@@ -16,7 +16,7 @@
 			await new Promise(resolve => setTimeout(resolve, 1500));
 			console.log("Done invoking save_image")
 
-	        window.location.href = '/en/select_image';
+	        window.location.href = '/cz/select_image';
         }
     }
 </script>

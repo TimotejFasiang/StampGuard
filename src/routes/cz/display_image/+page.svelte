@@ -16,7 +16,7 @@
 	}
 
 	function navigateBack() {
-		window.location.href = '/en/select_image';
+		window.location.href = '/cz/select_image';
 	}
 
 	function exitApp() {

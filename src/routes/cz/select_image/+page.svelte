@@ -40,7 +40,7 @@
     }
 
     function handleNavigation() {
-        window.location.href = '/en/display_image';
+        window.location.href = '/cz/display_image';
     }
 </script>
 
