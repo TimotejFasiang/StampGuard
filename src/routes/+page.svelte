@@ -98,7 +98,6 @@
 </style>
 
 <main>
-	main_page
     <div class="container">
         <div class="image-button-wrapper">
 	        <img src="/png/logo-light.png" alt="Logo">
