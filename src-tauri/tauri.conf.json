@@ -35,7 +35,11 @@
       },
       "fs": {
         "all": true,
-        "scope": ["$RESOURCE/*"]
+        "scope": [
+          "$HOME/.local/share/stamp-guard/frontend",
+          "$HOME/.local/share/stamp-guard/frontend/*",
+          "$RESOURCE/*"
+        ]
       }
     },
     "bundle": {
