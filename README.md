@@ -13,7 +13,7 @@ Pro aplikaci jsem se rozhodl použít Tauri. Je to moderní framework pro vytvá
 Základy jsem dokončil. Mám úvodní stránku s výběrem jazyka(en/cz) a pak hlavní stránku, kde si uživatel může vybrat obrázek ze svého počítače, a můj javascriptový kód vyvolá příkaz rustu, který spustí můj pythonový soubor a uloží upravený obrázek(zatím jen vodorovné překlopení, aby bylo jisté, že python lze použít), který se pak zobrazí v aplikaci.
 
 ### 1:
-Měl jsem schůzku s Ing. Chudobou a diskutovali jsme o tom, co by chtěl, aby aplikace dělala. Mám několik verzí známek z roku 1919, se kterými mi doporučil začít. Například na jedné z verzí je klíčovým ukazatelem toho, zda je známka pravá nebo falešná, háček na s. Na předchozím obrázku se háček téměř dotýká s, kdežto na dalším obrázku je háček vyvýšen nad s. Podobné typy ukazatelů jsou i na dalších známkách. Zmínil také, že vzhledem k tomu, že známky jsou více než 100 let staré, nemusí mít již stejné rozměry a mezi pravou a falešnou může být rozdíl jen několika milimetrů.
+Měl jsem schůzku s Ing. Chudobou a diskutovali jsme o tom, co by chtěl, aby aplikace dělala. Mám několik verzí známek z roku 1919, se kterými mi doporučil začít. Například na jedné z verzí je klíčovým ukazatelem toho, zda je známka pravá nebo falešná, háček na s. Na na jedné známce se háček téměř dotýká s, kdežto na další známce je háček vyvýšen nad s. Podobné typy ukazatelů jsou i na dalších známkách. Zmínil také, že vzhledem k tomu, že známky jsou více než 100 let staré, nemusí mít již stejné rozměry a mezi pravou a falešnou může být rozdíl jen několika milimetrů.
 
 ## - - - - - - - - - - - - - - - - - - - -
 
