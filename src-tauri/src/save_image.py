@@ -28,7 +28,7 @@ def save_image(image_path):
 
     # Step 1: Define the lower and upper bounds for black in RGB
     lower_black = np.array([0, 0, 0])
-    upper_black = np.array([104, 77, 64])  # Adjust these values as needed
+    upper_black = np.array([77, 64, 64])  # Adjust these values as needed
 
     # Step 2: Create a mask to extract black regions
     mask = cv2.inRange(original_image, lower_black, upper_black)
