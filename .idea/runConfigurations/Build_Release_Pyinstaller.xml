@@ -1,6 +1,6 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="Build+Pyinstaller" type="ShConfigurationType">
-    <option name="SCRIPT_TEXT" value="clear &amp;&amp; cd src-tauri/src &amp;&amp; pyinstaller --onefile save_image.py &amp;&amp; rm save_image-x86_64-unknown-linux-gnu &amp;&amp; mv dist/save_image save_image-x86_64-unknown-linux-gnu &amp;&amp; rm -r dist &amp;&amp; rm -r build &amp;&amp; rm save_image.spec &amp;&amp; npm run tauri build -- --debug" />
+  <configuration default="false" name="Build Release+Pyinstaller" type="ShConfigurationType">
+    <option name="SCRIPT_TEXT" value="clear &amp;&amp; cd src-tauri/src &amp;&amp; pyinstaller --onefile save_image.py &amp;&amp; rm save_image-x86_64-unknown-linux-gnu &amp;&amp; mv dist/save_image save_image-x86_64-unknown-linux-gnu &amp;&amp; rm -r dist &amp;&amp; rm -r build &amp;&amp; rm save_image.spec &amp;&amp; npm run tauri build" />
     <option name="INDEPENDENT_SCRIPT_PATH" value="true" />
     <option name="SCRIPT_PATH" value="" />
     <option name="SCRIPT_OPTIONS" value="" />
