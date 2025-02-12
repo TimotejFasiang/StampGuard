@@ -1,22 +1,3 @@
-# Updates for doc. Chaloupka:
-
-### 4:
-Dokončil jsem přechod na Svelte, veškeré budoucí změny uživatelského rozhraní programu budou teď rychlejší a jednodušší. 
-~~Testuji svou první verzi a mám problémy s architekturou procesoru. Zatím to vypadá, že budu muset mít oddělené verze pro systémy amd a intel, dokud nepřijdu na lepší řešení.~~ **Vyřešeno.**
-Jinak jsem se základní funkčností programu spokojen. Jediné, co potřebuji opravit, je 1,5 sekundová pauza mezi výběrem a zobrazením obrázku známky. Pauzu jsem musel přidat do kódu, protože bez ní se obrázek vůbec nezobrazuje.
-
-### 3:
-Jakmile dokončím změnu na svelte, dám první „release“ na github.
-
-### 2:
-Pro aplikaci jsem se rozhodl použít Tauri. Je to moderní framework pro vytváření multiplatformních desktopových aplikací využívajících webové technologie (v mém případě HTML, CSS a JavaScript) v kombinaci s Rustem pro backendové funkce. I když jako backend používá rust, budu ho používat pouze k volání svých python souborů, takže teoreticky by se dalo říct, že má pythonovský backend, jak jste požadoval.
-Základy jsem dokončil. Mám úvodní stránku s výběrem jazyka(en/cz) a pak hlavní stránku, kde si uživatel může vybrat obrázek ze svého počítače, a můj javascriptový kód vyvolá příkaz rustu, který spustí můj pythonový soubor a uloží upravený obrázek(zatím jen vodorovné překlopení, aby bylo jisté, že python lze použít), který se pak zobrazí v aplikaci.
-
-### 1:
-Měl jsem schůzku s Ing. Chudobou a diskutovali jsme o tom, co by chtěl, aby aplikace dělala. Mám několik verzí známek z roku 1919, se kterými mi doporučil začít. Například na jedné z verzí je klíčovým ukazatelem toho, zda je známka pravá nebo falešná, háček na s. Na na jedné známce se háček téměř dotýká s, kdežto na další známce je háček vyvýšen nad s. Podobné typy ukazatelů jsou i na dalších známkách. Zmínil také, že vzhledem k tomu, že známky jsou více než 100 let staré, nemusí mít již stejné rozměry a mezi pravou a falešnou může být rozdíl jen několika milimetrů.
-
-## - - - - - - - - - - - - - - - - - - - -
-
 # StampGuard
 
 StampGuard is a cross-platform desktop (mobile maybe ??) application designed to detect fraud and fake Czechoslovak stamps. It utilizes algorithms to analyze and verify the authenticity of stamps based on various criteria.
