@@ -3,9 +3,15 @@ import cv2
 import os
 import numpy as np
 
+sys.stdout = open(sys.stdout.fileno(), mode='w', buffering=1)
+sys.stderr = open(sys.stderr.fileno(), mode='w', buffering=1)
+
 def save_image(image_path):
     original_image = cv2.imread(image_path)
-
+    if original_image is not None:
+        cv2.imshow('image', original_image)
+    else:
+        print("The opened image is empty for some reason", file=sys.stderr)
     # Define the output directory in the .local/share/stamp-guard path
     home_dir = os.path.expanduser("~")
     output_dir = os.path.join(home_dir, ".local", "share", "stamp-guard", "frontend")
@@ -55,4 +61,5 @@ if __name__ == "__main__":
     if len(sys.argv) != 2:
         print("Usage: python3 save_image.py <image_path>")
     else:
+        print(f"Here is the sys.arv[1]: {sys.argv[1]}")
         save_image(sys.argv[1])

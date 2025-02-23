@@ -1,98 +1,43 @@
 {
-  "$schema": "../node_modules/@tauri-apps/cli/schema.json",
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "stampguard",
+  "version": "0.1.0",
+  "identifier": "com.stampguard.app",
   "build": {
-    "beforeBuildCommand": "npm run build",
     "beforeDevCommand": "npm run dev",
-    "devPath": "http://localhost:5173",
-    "distDir": "../build"
+    "devUrl": "http://localhost:1420",
+    "beforeBuildCommand": "npm run build",
+    "frontendDist": "../build"
   },
-  "package": {
-    "productName": "StampGuard",
-    "version": "0.0.1"
-  },
-  "tauri": {
-    "allowlist": {
-      "shell": {
-        "sidecar": true,
-        "scope": [
-          { "name": "src/save_image", "sidecar": true, "args": true }
-        ]
-      },
-      "window": {
-        "close": true
-      },
-      "dialog": {
-        "open": true
-      },
-      "protocol": {
-        "asset": true,
-        "assetScope": {
-          "allow": ["$HOME/.local/share/stamp-guard/**", "$RESOURCE/**"]
-        }
-      },
-      "path": {
-        "all": true
-      },
-      "fs": {
-        "all": true,
-        "scope": [
-          "$HOME/.local/share/stamp-guard/frontend",
-          "$HOME/.local/share/stamp-guard/frontend/*",
-          "$RESOURCE/*"
-        ]
-      }
-    },
-    "bundle": {
-      "active": true,
-      "category": "Utility",
-      "copyright": "",
-      "deb": {
-        "depends": []
-      },
-      "externalBin": [
-        "src/save_image"
-      ],
-      "icon": [
-        "icons/32x32.png",
-        "icons/128x128.png",
-        "icons/128x128@2x.png",
-        "icons/icon.icns",
-        "icons/icon.ico"
-      ],
-      "identifier": "com.timotejfasiang.stampguard",
-      "longDescription": "",
-      "macOS": {
-        "entitlements": null,
-        "exceptionDomain": "",
-        "frameworks": [],
-        "providerShortName": null,
-        "signingIdentity": null
-      },
-      "resources": {},
-      "shortDescription": "",
-      "targets": ["deb"],
-      "windows": {
-        "certificateThumbprint": null,
-        "digestAlgorithm": "sha256",
-        "timestampUrl": ""
-      }
-    },
-    "security": {
-      "csp": null
-    },
-    "updater": {
-      "active": false
-    },
+  "app": {
     "windows": [
       {
-        "fullscreen": false,
-        "maximized": true,
-        "height": 600,
+        "title": "stampguard",
         "width": 800,
-        "resizable": true,
-        "title": "StampGuard"
-
+        "height": 600
       }
+    ],
+    "security": {
+      "capabilities": [],
+      "csp": "default-src 'self' ipc: http://ipc.localhost; img-src 'self' asset: http://asset.localhost",
+      "assetProtocol": {
+        "enable": true,
+        "scope": ["$HOME/.local/**"]
+      }
+    }
+  },
+  "bundle": {
+    "externalBin": [
+      "src/save_image"
+    ],
+    "active": true,
+    "targets": "all",
+    "icon": [
+      "icons/32x32.png",
+      "icons/128x128.png",
+      "icons/128x128@2x.png",
+      "icons/icon.icns",
+      "icons/icon.ico"
     ]
   }
 }
