@@ -1,15 +1,16 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
+	import { convertFileSrc } from '@tauri-apps/api/core';
 	import { homeDir } from '@tauri-apps/api/path';
-	import { convertFileSrc } from '@tauri-apps/api/tauri';
-	import { appWindow } from '@tauri-apps/api/window';
+	import { onMount } from 'svelte';
+	import { WebviewWindow } from '@tauri-apps/api/webviewWindow'
+	const appWindow = WebviewWindow.getCurrent();
 
 	let showButtonRow: boolean = false;
-	let imageUrl: string;
+    let imageUrl = '';
 
 	async function loadImage() {
 		const homeDirPath = await homeDir();
-		const basePath = `${homeDirPath}.local/share/stamp-guard/frontend`;
+		const basePath = `${homeDirPath}/.local/share/stamp-guard/frontend`;
 		const processedImagePath = `${basePath}/processed_image.jpg`;
 
 		imageUrl = `${convertFileSrc(processedImagePath)}?t=${new Date().getTime()}`;
@@ -99,7 +100,7 @@
 	<div class="container">
 		<div class="image-button-wrapper">
 			{#if imageUrl}
-				<img id="selectedImage" src={imageUrl} alt="Processed image" />
+				<img id="selectedImage" src={imageUrl} alt="Selected" />
 			{/if}
 			{#if showButtonRow}
 				<div class="button-row">

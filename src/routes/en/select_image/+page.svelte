@@ -1,18 +1,18 @@
 <script lang="ts">
-	import { convertFileSrc, invoke } from '@tauri-apps/api/tauri';
-	import { open } from '@tauri-apps/api/dialog';
+	import { convertFileSrc, invoke } from '@tauri-apps/api/core';
+	import { open } from '@tauri-apps/plugin-dialog';
+    import { Command } from "@tauri-apps/plugin-shell";
 	import { homeDir } from '@tauri-apps/api/path';
 	import { onMount } from 'svelte';
 
-	let homeDirPath = '';
     let imageUrl = '';
 	let origImagePath = '';
 
     // Use onMount with an async function to perform async operations
     onMount(async () => {
         // Await the homeDir call!!!
-        homeDirPath = await homeDir();
-        const basePath = `${homeDirPath}.local/share/stamp-guard/frontend`;
+        const homeDirPath = await homeDir();
+        const basePath = `${homeDirPath}/.local/share/stamp-guard/frontend`;
         origImagePath = `${basePath}/orig_image.jpg`;
 
 		// Convert the file path to a URL that can be used in an img tag
@@ -21,7 +21,7 @@
     });
 
     async function handleFileSelection() {
-		console.log("Starting handleFileSelection")
+        console.log("Starting handleFileSelection")
         const selectedFilePath = await open({
             multiple: false,
             directory: false,
@@ -29,14 +29,26 @@
         });
 
         if (selectedFilePath) {
-			await invoke('save_image', { message: selectedFilePath });
-			await new Promise(resolve => setTimeout(resolve, 2000));
-			console.log("Done invoking save_image")
+        	console.log("Invoking save_image");
 
-            // Cache busting: Add a unique query parameter to the image URL
-            imageUrl = `${convertFileSrc(origImagePath)}?t=${new Date().getTime()}`;
-			console.log("Done Async handleFileSelection")
-        }
+			try {
+				const command = Command.sidecar('src/save_image', [selectedFilePath]);
+				const output = await command.execute();  // Executes and waits for result
+
+				console.log(`[Python stdout]: ${output.stdout}`);
+				console.error(`[Python stderr]: ${output.stderr}`);
+
+				if (output.code !== 0) {
+					console.error(`Process exited with error code: ${output.code}`);
+				}
+			} catch (error) {
+				console.error(`Command execution error: ${error}`);
+			}
+
+			console.log("Done invoking save_image");
+
+			window.location.href = '/en/select_image';
+		}
     }
 
     function handleNavigation() {

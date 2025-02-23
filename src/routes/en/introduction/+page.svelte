@@ -1,6 +1,6 @@
 <script lang="ts">
-    import { invoke } from '@tauri-apps/api/tauri';
-    import { open } from '@tauri-apps/api/dialog';
+    import { open } from '@tauri-apps/plugin-dialog';
+	import { Command } from "@tauri-apps/plugin-shell";
 
     // Function to handle file selection and invoke the command
     async function handleFileSelection() {
@@ -12,12 +12,26 @@
         });
 
         if (selectedFilePath) {
-			await invoke('save_image', { message: selectedFilePath });
-			await new Promise(resolve => setTimeout(resolve, 1500));
-			console.log("Done invoking save_image")
+        	console.log("Invoking save_image");
 
-	        window.location.href = '/en/select_image';
-        }
+			try {
+				const command = Command.sidecar('src/save_image', [selectedFilePath]);
+				const output = await command.execute();  // Executes and waits for result
+
+				console.log(`[Python stdout]: ${output.stdout}`);
+				console.error(`[Python stderr]: ${output.stderr}`);
+
+				if (output.code !== 0) {
+					console.error(`Process exited with error code: ${output.code}`);
+				}
+			} catch (error) {
+				console.error(`Command execution error: ${error}`);
+			}
+
+			console.log("Done invoking save_image");
+
+			window.location.href = '/en/select_image';
+		}
     }
 </script>
 
