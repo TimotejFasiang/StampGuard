@@ -1,1 +1,0 @@
-{"default":{"identifier":"default","description":"Capability for the main window","local":true,"windows":["main"],"permissions":["core:default",{"identifier":"shell:allow-execute","allow":[{"args":[{"validator":"\\S+"}],"name":"src/save_image","sidecar":true}]},"shell:allow-open","opener:default","shell:default","fs:default","dialog:default","core:window:allow-close"]}}
