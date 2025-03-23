@@ -46,8 +46,6 @@
 			}
 
 			console.log("Done invoking save_image");
-
-			window.location.href = '/en/select_image';
 		}
     }
 
