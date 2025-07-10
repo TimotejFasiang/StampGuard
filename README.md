@@ -1,24 +1,20 @@
 # StampGuard
 
-StampGuard is a cross-platform desktop application designed to detect fraud and fake historical Czechoslovak stamps. It utilizes algorithms to analyze and verify the authenticity of stamps based on various criteria.
+StampGuard is a cross-platform desktop application designed to detect fraud and fake historical Czechoslovak stamps.
 
 ## Features
 
 - **Stamp Image Analysis:** Upload a photo of a stamp to analyze its authenticity.
-- **Advanced Algorithms:** Utilizes advanced models and image processing algorithms to detect patterns indicative of fraudulent or fake stamps.
+- **Advanced Algorithms:** Utilizes advanced models and image processing algorithms to detect and categorize stamps.
 - **User-friendly Interface:** Simple and intuitive UI for easy operation and analysis.
 - **Offline Mode:** Works entirely offline, no need for internet connectivity for stamp verification.
-- **Detailed Findings:** Provides detailed findings on the analysis and authenticity of each stamp.
-- **Customizable Settings:** Adjustable settings for different stamp types and verification thresholds.
-- **Other:** Other features.
+- **Customizable Settings:** Adjustable settings for different input types from single stamps for complete stamp sheets.
 
 ## Getting Started
 
 ### Prerequisites
 
 - Windows, macOS, or Linux operating system
-- Maybe Android or IOS phone??
-- Other prerequisites
 
 ### Installation
 
